@@ -32,11 +32,21 @@
     return num%2===0;
   }
 
+
+  // convalida di un promt RETURN numero compreso tra min e max
   function numberValidateInRange(msg,min,max){
     let input;
     do{
       input = Number(prompt(msg))
     } while( isNaN(input) || input<min || input>max)
+    return input;
+  }
+  // convalida un numero RETURN number
+  function numberValidateInRange(msg){
+    let input;
+    do{
+      input = Number(prompt(msg))
+    } while( isNaN(input))
     return input;
   }
 
