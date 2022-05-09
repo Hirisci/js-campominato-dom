@@ -1,0 +1,66 @@
+/*╔═══════════════╗
+      VARIABILI
+  ╚═══════════════╝*/
+
+ :root{
+    /*- COLORI PRIMARIO -*/
+    --clr-primary-0: black;
+
+    /*- COLORI SECONDARIO -*/
+    --clr-secondary-0: white;
+
+
+
+    /*-COLORI BG -*/
+    --clr-bg-0: rgb(8, 59, 76);
+    --clr-bg-1: rgb(19, 137, 178);
+    --clr-bg-2: rgb(11, 214, 161);
+    --clr-bg-3: rgb(255, 209, 102);
+    --clr-bg-4: rgb(240, 70, 111);
+
+    /*- DIMENSIONI GUTTER*/
+    --gutter-xs: .25rem;
+    --gutter-sm: .5rem;
+    --gutter-md: 1rem;
+    --gutter-lg: 1.5rem;
+    --gutter-xl: 2rem;
+    --gutter-xxl: 3rem;
+
+}
+
+/*╔═══════════════╗
+       DEBUG
+  ╚═══════════════╝*/
+
+  .debug header{
+      background-color: aqua;
+  }
+
+  .debug aside{
+      background-color: black;
+  }
+
+  .debug .content{
+      background-color: coral;
+  }
+  
+  .debug footer{
+      background-color: brown;
+  }
+  
+/*╔═══════════════╗
+       COMMON
+  ╚═══════════════╝*/
+
+body{
+    font-family: 'rotobo', sans-serif;
+    color: var(--colore-testo);
+}
+
+
+
+
+/*╔═══════════════╗
+    TAG SEMANTICI
+  ╚═══════════════╝*/
+
