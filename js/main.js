@@ -72,8 +72,6 @@ const bombs = rndListUnequalNumber(16, 1, maxRange);
 const maxAttempts = maxRange - bombs.length;
 const playerChoises = [];
 
-console.log(bombs)
-
 while(playerChoises.length < maxAttempts && gameStatus) {
   let num = numberValidateInRange(`Inserisci un numero tra 1 e ${maxRange}`, 1, maxRange)
   if(bombs.includes(num)) {
@@ -83,7 +81,6 @@ while(playerChoises.length < maxAttempts && gameStatus) {
     alert("Numero già inserito");
   } else if(!playerChoises.includes(num)) {
     playerChoises.push(num);
-    console.log(playerChoises)
   }
 }
 
