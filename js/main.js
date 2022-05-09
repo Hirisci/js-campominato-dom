@@ -41,16 +41,7 @@
     } while( isNaN(input) || input<min || input>max)
     return input;
   }
-  // convalida un numero RETURN number
-  function numberValidateInRange(msg){
-    let input;
-    do{
-      input = Number(prompt(msg))
-    } while( isNaN(input))
-    return input;
-  }
-
-
+ 
 
 
 /*╔══════════════════════════════════════════════════════════════════════════════════════════╗
@@ -73,33 +64,29 @@ con difficoltà 1 => tra 1 e 80
 con difficoltà 2 => tra 1 e 50
 ---------------------------------------------------------------------------------------------*/
 
-let gameStatus= true;
-const choiseLevel= numberValidateInRange("Inserisci il livello di difficolta 1 - 2 - 3 ",1,3)-1;
-const levelRange= [100,80,50]
-const bombs = rndListUnequalNumber(16,1,levelRange[choiseLevel]);
-const playerChoises = [] 
+let gameStatus = true;
+const choiseDifficulty = numberValidateInRange("Inserisci il livello di difficolta 1 - 2 - 3 ", 1, 3) - 1;
+const maxRndNumbers = [100, 80, 50];
+const maxRange = maxRndNumbers[choiseDifficulty];
+const bombs = rndListUnequalNumber(16, 1, maxRange);
+const maxAttempts = maxRange - bombs.length;
+const playerChoises = [];
 
 console.log(bombs)
 
-while(playerChoises.length<levelRange[choiseLevel]-bombs.length && gameStatus){
-  let num = numberValidateInRange("Inserisci un numero tra 1 e "+levelRange[choiseLevel],1,levelRange[choiseLevel])
-  if(bombs.includes(num)){
-    alert("Hai preso una mina, il tuo punteggio é: "+playerChoises.length)
-    gameStatus = false
-  } else if(playerChoises.includes(num)){
-    alert("Numero gi'inserito")
-  } else if(!playerChoises.includes(num)){
+while(playerChoises.length < maxAttempts && gameStatus) {
+  let num = numberValidateInRange(`Inserisci un numero tra 1 e ${maxRange}`, 1, maxRange)
+  if(bombs.includes(num)) {
+    alert(`Hai preso una mina, il tuo punteggio è: ${playerChoises.length}`)
+    gameStatus = false;
+  } else if(playerChoises.includes(num)) {
+    alert("Numero già inserito");
+  } else if(!playerChoises.includes(num)) {
     playerChoises.push(num);
     console.log(playerChoises)
   }
 }
 
-if(gameStatus===true){
+if(gameStatus === true) {
   alert("Complimenti hai vinto!!!!")
 }
-
-
-
-
-
-
