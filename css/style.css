@@ -53,8 +53,16 @@ button>span{
     font-size: 0.9rem;
 }
 
-.hide{
-    display: none;
+.btn{
+    margin: var(--gutter-sm);
+    padding: var(--gutter-sm) var(--gutter-md);
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.btn--active{
+    color: aqua;
+    background-color: black;
 }
 
 /*╔═══════════════╗
@@ -62,9 +70,7 @@ button>span{
   ╚═══════════════╝*/
 
 .window{
-    border: 1 solid black;
     padding: var(--gutter-xxl);
-    background-color: var(--clr-bg-1);
     border-radius: var(--border-radius);
 }
 
@@ -78,3 +84,68 @@ button>span{
     margin: var(--gutter-md);
 }
 
+
+
+
+.window-game{
+    aspect-ratio: 1/1;
+    height: 60vh;
+}
+
+.window-game--small{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.2rem;
+}
+
+.window-game--normal{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 0.2rem;
+}
+
+.window-game--big{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 0.2rem;
+}
+
+.box{
+    aspect-ratio: 1/1;
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 1;
+    background-color: var(--clr-bg-1);
+}
+
+.box--overlay{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    background-color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hide{
+    display: none;
+}
