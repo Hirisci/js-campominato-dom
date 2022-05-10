@@ -16,7 +16,19 @@
     <title>Prato Fiorito</title>
 </head>
 <body>
-  
+    <div class="window window-settings">
+        <div class="window-settings__button">
+           <button id="btn-small">Campo Piccolo<span>8x8</span></button>
+           <button id="btn-normal">Campo Medio<span>10x10</span></button>
+           <button id="btn-big">Campo Grande<span>15x15</span></button>
+        </div>
+        <div class="window-settings__boms">
+            <label for="bombs">Bombe</label>
+            <input id=bombs type="number" placeholder="16">
+        </div>
+    </div>
+
+    <div class="window window-game hide"></div>
 
     <script src="js/main-2.js"></script>
 </body>

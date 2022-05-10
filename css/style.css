@@ -12,11 +12,8 @@
 
 
     /*-COLORI BG -*/
-    --clr-bg-0: rgb(8, 59, 76);
-    --clr-bg-1: rgb(19, 137, 178);
-    --clr-bg-2: rgb(11, 214, 161);
-    --clr-bg-3: rgb(255, 209, 102);
-    --clr-bg-4: rgb(240, 70, 111);
+    --clr-bg-0: rgb(19, 122, 5);
+    --clr-bg-1: rgba(255, 255, 255, 0.3);
 
     /*- DIMENSIONI GUTTER*/
     --gutter-xs: .25rem;
@@ -26,28 +23,10 @@
     --gutter-xl: 2rem;
     --gutter-xxl: 3rem;
 
+    --border-radius: 1rem;
+
 }
-
-/*╔═══════════════╗
-       DEBUG
-  ╚═══════════════╝*/
-
-  .debug header{
-      background-color: aqua;
-  }
-
-  .debug aside{
-      background-color: black;
-  }
-
-  .debug .content{
-      background-color: coral;
-  }
-  
-  .debug footer{
-      background-color: brown;
-  }
-  
+ 
 /*╔═══════════════╗
        COMMON
   ╚═══════════════╝*/
@@ -55,12 +34,47 @@
 body{
     font-family: 'rotobo', sans-serif;
     color: var(--colore-testo);
+    height: 100vh;
+    width: 100%;
+    background-color: var(--clr-bg-0) ;
+    display: grid;
+    place-items: center;
 }
 
 
+/*--- BUTTON ---*/
 
+button{
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+button>span{
+    font-size: 0.9rem;
+}
+
+.hide{
+    display: none;
+}
 
 /*╔═══════════════╗
     TAG SEMANTICI
   ╚═══════════════╝*/
+
+.window{
+    border: 1 solid black;
+    padding: var(--gutter-xxl);
+    background-color: var(--clr-bg-1);
+    border-radius: var(--border-radius);
+}
+
+.window-settings{
+    text-align: center;
+}
+.window-settings__button{
+    display: flex;
+    flex-direction: column;
+    gap:var(--gutter-sm);
+    margin: var(--gutter-md);
+}
 

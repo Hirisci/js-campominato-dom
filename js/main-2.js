@@ -1,18 +1,3 @@
-
-  
-  placeBomb(arr, 5);
-  placeBomb(arr, 15);
-  placeBomb(arr, 25);
-  placeBomb(arr, 35);
-  placeBomb(arr, 45);
-  placeBomb(arr, 55);
-  placeBomb(arr, 65);
-  
-  console.log(arr);
-
-
-
-
 /*╔══════════════════════════════════════════════════════════════════════════════════════════╗
                                         FUNZIONI
   ╚══════════════════════════════════════════════════════════════════════════════════════════╝*/
@@ -125,6 +110,42 @@
       }
     }
   }
+
+  function generateMatrice(row,colums){
+    let arr = []
+    for(let i = 0; i<row ; i++){
+        let row = []
+        for(let i = 0; i<colums ; i++){
+            row.push(0)    
+        }
+        arr.push(row)
+    }
+    console.log(arr)
+    return arr;
+    
+} 
+function placeListBombs(matrice, listBombs){
+    for (let i = 0; i < listBombs.length; i++) {
+        placeBomb(matrice,listBombs[i])
+    }
+    console.log(matrice)
+}
+
+function generateField(matrice,where){
+    const div = document.createElement("div");
+    div.classList.add("box")
+    for(let i = 0; i<matrice.length;i++){
+        
+    }
+
+
+    
+
+}
+
+
+
+
  
 
 
@@ -132,42 +153,123 @@
                                             MAIN
   ╚══════════════════════════════════════════════════════════════════════════════════════════╝*/
 /* --------------------------------------------------------------------------------------------
-CONSEGNA EXERCIZIO
 
-Il computer deve generare 16 numeri casuali tra 1 e 100.
-I numeri non possono essere duplicati.
-In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
-L’utente non può inserire più volte lo stesso numero.
-Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
-La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
-BONUS: (da fare solo se funziona tutto il resto)
-all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
-con difficoltà 0 => tra 1 e 100
-con difficoltà 1 => tra 1 e 80
-con difficoltà 2 => tra 1 e 50
 ---------------------------------------------------------------------------------------------*/
 
-let gameStatus = true;
-const choiseDifficulty = numberValidateInRange("Inserisci il livello di difficolta 1 - 2 - 3 ", 1, 3) - 1;
-const maxRndNumbers = [100, 80, 50];
-const maxRange = maxRndNumbers[choiseDifficulty];
-const bombs = rndListUnequalNumber(16, 1, maxRange);
-const maxAttempts = maxRange - bombs.length;
-const playerChoises = [];
+const btnSmall = document.querySelector("#btn-small");
+const btnNormal = document.querySelector("#btn-normal");
+const btnBig = document.querySelector("#btn-big");
+const windowSet = document.querySelector(".window-settings")
+const windowGame = document.querySelector(".window-game")
+const bombInput = document.querySelector("#bombs").value
 
-while(playerChoises.length < maxAttempts && gameStatus) {
-  let num = numberValidateInRange(`Inserisci un numero tra 1 e ${maxRange}`, 1, maxRange)
-  if(bombs.includes(num)) {
-    alert(`Hai preso una mina, il tuo punteggio è: ${playerChoises.length}`)
-    gameStatus = false;
-  } else if(playerChoises.includes(num)) {
-    alert("Numero già inserito");
-  } else if(!playerChoises.includes(num)) {
-    playerChoises.push(num);
-  }
-}
 
-if(gameStatus === true) {
-  alert("Complimenti hai vinto!!!!")
-}
+let bombNumber = 0
+let row = 0;
+let colums = 0;
+let matrice = [[]]
+let bombslist = []
+
+btnSmall.addEventListener("click", 
+    function(){
+
+        windowSet.classList.add("hide")
+        windowGame.classList.remove("hide")
+
+        if(bombInput===""){
+            bombNumber=16
+        } else { 
+            bombNumber=bombInput
+        }
+
+        row = 8;
+        colums=8;
+
+        bombslist= rndListUnequalNumber(bombNumber,1,row*colums)
+        matrice = generateMatrice(row,colums)
+        placeListBombs(matrice,bombslist)
+        generateField(matrice,windowGame)
+        
+    }
+)
+
+btnNormal.addEventListener("click", 
+    function(){
+
+        windowSet.classList.add("hide")
+        windowGame.classList.remove("hide")
+
+        if(bombInput===""){
+            bombNumber=16
+        } else { 
+            bombNumber=bombInput
+        }
+
+        row = 10;
+        colums=10;
+
+        bombslist= rndListUnequalNumber(bombNumber,1,row*colums)
+        matrice = generateMatrice(row,colums)
+        placeListBombs(matrice,bombslist)
+        generateField(matrice)  
+
+    }
+)
+
+btnBig.addEventListener("click", 
+    function(){
+
+        windowSet.classList.add("hide")
+        windowGame.classList.remove("hide")
+
+        if(bombInput===""){
+            bombNumber=16
+        } else { 
+            bombNumber=bombInput
+        }
+        row = 15;
+        colums=15;
+
+        bombslist= rndListUnequalNumber(bombNumber,1,row*colums)
+        matrice = generateMatrice(row,colums)
+        placeListBombs(matrice,bombslist)
+        generateField(matrice)
+        
+
+    }
+)
+
+
+
+
+
+
+
+
+
+
+
+
+// let gameStatus = true;
+// const choiseDifficulty = numberValidateInRange("Inserisci il livello di difficolta 1 - 2 - 3 ", 1, 3) - 1;
+// const maxRndNumbers = [100, 80, 50];
+// const maxRange = maxRndNumbers[choiseDifficulty];
+// const bombs = rndListUnequalNumber(16, 1, maxRange);
+// const maxAttempts = maxRange - bombs.length;
+// const playerChoises = [];
+
+// while(playerChoises.length < maxAttempts && gameStatus) {
+//   let num = numberValidateInRange(`Inserisci un numero tra 1 e ${maxRange}`, 1, maxRange)
+//   if(bombs.includes(num)) {
+//     alert(`Hai preso una mina, il tuo punteggio è: ${playerChoises.length}`)
+//     gameStatus = false;
+//   } else if(playerChoises.includes(num)) {
+//     alert("Numero già inserito");
+//   } else if(!playerChoises.includes(num)) {
+//     playerChoises.push(num);
+//   }
+// }
+
+// if(gameStatus === true) {
+//   alert("Complimenti hai vinto!!!!")
+// }
