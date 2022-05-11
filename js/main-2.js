@@ -121,18 +121,62 @@ function generateField(matrice, where) {
   for (let i = 0; i < matrice.length; i++) {
     for (let j = 0; j < matrice[i].length; j++) {
       const div = document.createElement("div");
+      const divOver = document.createElement("div");
+      
       div.classList.add("box");
-      div.classList.add("box--overlay");
+      divOver.classList.add("box--overlay");
+      divOver.classList.add("box--absolute");
       console.log(matrice[i][j] === "X", "bomba");
-      if (matrice[i][j] === "X") {
-        div.classList.add("bomb");
+      switch (matrice[i][j]) {
+            case "X":
+                div.classList.add("text-clr-7")
+                divOver.classList.add("bomb");
+                div.innerText = `<i class="fa-solid fa-bomb"></i>`          
+            break;
+            case 1:
+                div.classList.add("text-clr-1")
+                div.innerText = matrice[i][j];
+            break
+            case 2:
+                div.classList.add("text-clr-2")
+                div.innerText = matrice[i][j];
+            break
+            case 3:
+                div.classList.add("text-clr-3")
+                div.innerText = matrice[i][j];
+            break
+            case 4:
+                div.classList.add("text-clr-4")
+                div.innerText = matrice[i][j];
+            break
+            case 5:
+                div.classList.add("text-clr-5")
+                div.innerText = matrice[i][j];
+            break
+            case 6:
+                div.classList.add("text-clr-6")
+                div.innerText = matrice[i][j];
+            break;
+            case 7:
+                div.classList.add("text-clr-7")
+                div.innerText = matrice[i][j];
+            break
+      
+            default:
+                div.classList.add("text-clr-0")
+                div.innerText = matrice[i][j];
+            break;
+
       }
       div.innerText = matrice[i][j];
-      div.addEventListener("click", onclic);
+      divOver.addEventListener("click", onclic);
+      div.append(divOver)
       where.append(div);
+      
     }
   }
 }
+
 
 function onclic() {
   if (this.classList.contains("box--overlay")) {
@@ -144,10 +188,6 @@ function onclic() {
 
   return console.log(this);
 }
-
-window.oncontextmenu = function () {
-    alert('Right Click')
-  }
 
 /*╔══════════════════════════════════════════════════════════════════════════════════════════╗
                                             MAIN
@@ -231,6 +271,23 @@ btnBig.addEventListener("click", function () {
   placeListBombs(matrice, bombslist, row);
   generateField(matrice, windowGameGrid);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // let gameStatus = true;
 // const choiseDifficulty = numberValidateInRange("Inserisci il livello di difficolta 1 - 2 - 3 ", 1, 3) - 1;

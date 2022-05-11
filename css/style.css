@@ -9,11 +9,20 @@
     /*- COLORI SECONDARIO -*/
     --clr-secondary-0: white;
 
+    --clr-txt-0: #277DA1 ;
+    --clr-txt-1: #577590 ;
+    --clr-txt-2: #4D908E ;
+    --clr-txt-3: #43AA8B ;
+    --clr-txt-4: #90BE6D ;
+    --clr-txt-5: #F9C74F ;
+    --clr-txt-6: #F9844A ;
+    --clr-txt-7: #F94144 ;
+
 
 
     /*-COLORI BG -*/
     --clr-bg-0: rgb(19, 122, 5);
-    --clr-bg-1: rgba(255, 255, 255, 0.3);
+    --clr-bg-1: rgb(77, 56, 29);
 
     /*- DIMENSIONI GUTTER*/
     --gutter-xs: .25rem;
@@ -39,6 +48,7 @@ body{
     background-color: var(--clr-bg-0) ;
     display: grid;
     place-items: center;
+    color: var(--clr-primary-0);
 }
 
 
@@ -65,6 +75,38 @@ button>span{
     background-color: black;
 }
 
+
+/*--- TYPO --*/
+
+.text-clr-0{
+    color: var(--clr-txt-0);
+}
+.text-clr-1{
+    color: var(--clr-txt-1);
+}
+.text-clr-2{
+    color: var(--clr-txt-2);
+}
+.text-clr-3{
+    color: var(--clr-txt-3);
+}
+.text-clr-4{
+    color: var(--clr-txt-4);
+}
+.text-clr-5{
+    color: var(--clr-txt-5);
+}
+.text-clr-6{
+    color: var(--clr-txt-6);
+}
+.text-clr-7{
+    color: var(--clr-txt-7);
+}
+
+
+
+
+
 /*╔═══════════════╗
     TAG SEMANTICI
   ╚═══════════════╝*/
@@ -90,24 +132,31 @@ button>span{
 .window-game{
     aspect-ratio: 1/1;
     height: 60vh;
+    position: relative;
 }
 
 .window-game--small{
+    font-size: 1.5em;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: 0.2rem;
+    border-radius: 1rem;
 }
 
 .window-game--normal{
+    font-size: 1.2em;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 0.2rem;
+    border-radius: 0.85rem;
 }
 
 .window-game--big{
+    font-size: 1rem;
     display: grid;
     grid-template-columns: repeat(15, 1fr);
     gap: 0.2rem;
+    border-radius: 10px;
 }
 
 .box{
@@ -115,17 +164,25 @@ button>span{
     display: grid;
     place-items: center;
     position: relative;
-    z-index: 1;
     background-color: var(--clr-bg-1);
+    font-weight: 900;
 }
 
 .box--overlay{
+    background-image: url(../img/grass.jpeg);
+    background-repeat: no-repeat;
+    background-size: 500%;
+    background-position: center;
+
+}
+
+.box--absolute{
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 0;
-    background-color: black;
+    z-index: 1;
 }
 
 
